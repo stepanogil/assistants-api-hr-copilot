@@ -45,6 +45,9 @@ streamlit run app.py
 3. Type your HR-related queries or commands and receive responses or actions from the assistant.
 4. The assistant can process images for OCR, fetch employee data, and handle ticket information.
 
+## Demo - click to watch the video
+
+[![Watch the Video](assets/hr-copilot-thumb.png)](https://youtu.be/mCm4icoRW9o)
 
 
 ## Author
