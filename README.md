@@ -1,4 +1,4 @@
-# HR AI Assistant built using the Assistants API
+# HR AI Copilot built using the Assistants API
 
 ## Description
 
