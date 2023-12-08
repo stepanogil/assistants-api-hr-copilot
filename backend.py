@@ -11,12 +11,12 @@ from tools.snow_ticket import get_ticket_info
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
 
+client = OpenAI()
+
 # must be loaded after the env variables as this requires the instance of the OpenAI client
 from tools.extract_ocr import extract_ocr
 
-client = OpenAI()
-
-# arg to retrieve employee data from SAP; the email is mapped to the pernr in the SAP HR system; hard coded for now
+# arg to retrieve employee data from SAP; the email is mapped to the employee number in the SAP HR system; hard coded for now
 user_email = "stephen.bonifacio@email.com"
 
 def chat(user_message, thread_id):
@@ -58,7 +58,7 @@ def chat(user_message, thread_id):
                 file_id = res.data[0].content[0].image_file.file_id
                 extracted_text = res.data[0].content[1].text.value
 
-            # If content is text only (from function call or no tool response)
+            # If content is text only (from function call or LLM didn't use a tool)
             elif len(res.data[0].content) == 1 and res.data[0].content[0].type == 'text':
                 # Extract LLM text response
                 extracted_text = res.data[0].content[0].text.value
@@ -122,7 +122,7 @@ def new_thread():
         file=open(ot_csv, "rb"),
         purpose="assistants"
         )
-    # i want to attach the file directly to the thread but i can't. you can only attach it to a message. *shrug emoji*. already requested this feature from OpenAI
+    # i want to attach the file directly to the thread but i can't. you can only attach it to a message. ¯\_(ツ)_/¯. already requested this feature from OpenAI
     client.beta.threads.messages.create(
             thread_id=thread.id, role="user", content="this is the time data of my direct reports. don't acknolwedge this message in your next reply. Strictly follow this instruction. This is important to my career.", file_ids=[file.id]
         )
