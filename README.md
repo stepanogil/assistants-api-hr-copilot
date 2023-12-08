@@ -2,7 +2,9 @@
 
 ## Description
 
-This is an an AI-powered HR Assistant powered by GPT-4-Turbo. It integrates a suite of tools including SAP HR for employee data retrieval, ServiceNow for ticketing information, GPT4 Vision for OCR capabilities and Code Interpreter for data analysis. Using Streamlit as frontend.
+This is an an AI-powered HR Assistant powered by GPT-4-Turbo. It integrates a suite of tools including SAP HR for employee data retrieval, ServiceNow for ticketing information, GPT4 Vision for OCR capabilities and Code Interpreter for data analysis. 
+
+It uses Streamlit as frontend.
 
 
 ## Tech Stack
